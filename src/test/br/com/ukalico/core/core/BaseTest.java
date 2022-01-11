@@ -1,47 +1,27 @@
 package br.com.ukalico.core.core;
 
 import br.com.ukalico.core.pages.LoginPage;
-import org.apache.commons.io.FileUtils;
+import com.philips.tasy.pages.LoginPageTasy;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
-import java.io.File;
 import java.io.IOException;
 
-import static br.com.ukalico.core.core.DriverFactory.getDriver;
-import static br.com.ukalico.core.core.DriverFactory.killDriver;
+public abstract class BaseTest {
 
-public class BaseTest {
+    @Rule
+	public TestName testName = new TestName(); /** contem o nome do teste*/
 	
-	@Rule
-	public TestName testName = new TestName();
-	
-	private LoginPage page = new LoginPage();
-		
-	
+	protected LoginPage page = new LoginPage(); /** contem a pagina de login*/
+
+	protected LoginPageTasy pageTasy = new LoginPageTasy(); /** contem a pagina de login*/
+
 	@Before
-	public void inicializa(){
-		page.acessarTelaInicial();
-		
-		page.setEmail("udineisilva@gmail.com");
-		page.setSenha("123456");
-		page.entrar();
-	}
+    protected abstract void inicializa(); /**Acessa o sistema a ser testado */
 	
 	@After
-	public void finaliza() throws IOException{
-		TakesScreenshot ss = (TakesScreenshot) getDriver();
-		File arquivo = ss.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshot" +
-				File.separator + testName.getMethodName() + ".jpg"));
-		
-		if(Propriedades.FECHAR_BROWSER) {
-			killDriver();
-		}
-	}
+	protected abstract void finaliza() throws IOException; /**Acessa o sistema a ser testado */
 
 }

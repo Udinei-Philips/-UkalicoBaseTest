@@ -1,6 +1,6 @@
 package br.com.ukalico.core.tests;
 
-import br.com.ukalico.core.core.BaseTest;
+import br.com.ukalico.core.core.BaseTestCore;
 import br.com.ukalico.core.pages.MenuPage;
 import br.com.ukalico.core.pages.MovimentacaoPage;
 import org.junit.Assert;
@@ -15,7 +15,7 @@ import java.util.List;
 import static br.com.ukalico.core.utils.DataUtils.obterDataFormatada;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class MovimentacaoTest extends BaseTest {
+public class MovimentacaoTest extends BaseTestCore {
 	private MenuPage menuPage = new MenuPage();
 	private MovimentacaoPage movPage = new MovimentacaoPage();
 

@@ -1,15 +1,13 @@
 package br.com.ukalico.core.tests;
 
-import br.com.ukalico.core.core.BaseTest;
+import br.com.ukalico.core.core.BaseTestCore;
 import br.com.ukalico.core.pages.ContasPage;
 import br.com.ukalico.core.pages.MenuPage;
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ContaTest extends BaseTest {
+
+public class ContaTest extends BaseTestCore {
 	
 	@Test
 	public void test() {

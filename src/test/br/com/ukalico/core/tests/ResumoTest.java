@@ -1,6 +1,6 @@
 package br.com.ukalico.core.tests;
 
-import br.com.ukalico.core.core.BaseTest;
+import br.com.ukalico.core.core.BaseTestCore;
 import br.com.ukalico.core.core.DriverFactory;
 import br.com.ukalico.core.pages.MenuPage;
 import br.com.ukalico.core.pages.ResumoPage;
@@ -16,7 +16,7 @@ import java.util.List;
 import static br.com.ukalico.core.core.DriverFactory.getDriver;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ResumoTest extends BaseTest {
+public class ResumoTest extends BaseTestCore {
 	private MenuPage menuPage = new MenuPage();
 	private ResumoPage resumoPage = new ResumoPage();
 

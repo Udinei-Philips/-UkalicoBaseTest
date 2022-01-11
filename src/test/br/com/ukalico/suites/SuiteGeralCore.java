@@ -6,10 +6,10 @@ import br.com.ukalico.core.tests.*;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
+
 
 @RunWith(Suite.class)
-@SuiteClasses({
+@Suite.SuiteClasses({
 	ContaTest.class,
 	MovimentacaoTest.class,
 	RemoverMovimentacaoContaTest.class,
@@ -19,14 +19,14 @@ import org.junit.runners.Suite.SuiteClasses;
 public class SuiteGeralCore {
 	
 	private static LoginPage page = new LoginPage();
-	
-	
-	
+
+
+	/** reseta o BD via aplicação assim que iniciar a aplicação */
 	@BeforeClass
 	public static void reset() {
 		// o script sql de reset do BD ser invocado nesse ponto tb
 		
-		page.acessarTelaInicial();
+		page.acessarTelaInicial("https://seubarriga.wcaquino.me");
 		
 		page.setEmail("udineisilva@gmail.com");
 		page.setSenha("123456");

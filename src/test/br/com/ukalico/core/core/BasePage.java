@@ -1,10 +1,10 @@
 package br.com.ukalico.core.core;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +13,23 @@ import static br.com.ukalico.core.core.DriverFactory.getDriver;
 
 public class BasePage {
 
+	WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+
 /********* TextField e TextArea ************/
 	
-	public void escrever(By by, String texto){
+	public void escrever(By by, String texto) {
+        //getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
 		getDriver().findElement(by).clear();
 		getDriver().findElement(by).sendKeys(texto);
+
+
 	}
 
-	public void escrever(String id_campo, String texto){
+	public void escrever(String id_campo, String texto) {
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id_campo)));
 		escrever(By.id(id_campo), texto);
+
 	}
 	
 	public String obterValorCampo(String id_campo) {
@@ -117,17 +125,27 @@ public class BasePage {
 	public void clicarBotaoPorTexto(String texto){
 		clicarBotao(By.xpath("//button[.='"+texto+"']"));
 	}
-	
+
 	public String obterValueElemento(String id) {
 		return getDriver().findElement(By.id(id)).getAttribute("value");
 	}
-	
+
 	/********* Link ************/
 	
 	public void clicarLink(String link) {
 		getDriver().findElement(By.linkText(link)).click();
 	}
-	
+
+	public void clicarLinkPorId(String link){
+	        getDriver().findElement(By.xpath("//*[@id='"+link+"']")).click();
+   }
+
+   public void clicarBotaoInput(String type, String value) {
+	   getDriver().findElement(By.xpath(".//input[@type='"+type+"'][@value='"+value+"']")).click();
+   }
+
+	//   //button[@ng-if='ok_'][@type='button']
+
 	/********* Textos ************/
 	
 	public String obterTexto(By by) {
@@ -166,7 +184,26 @@ public class BasePage {
 		alert.sendKeys(valor);
 		alert.accept();
 	}
-	
+
+
+	public void fechaAlertElementosInvalidos(){
+		WebElement dialog_content = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ngdialog-content']")));
+		WebElement dialog_content_button_ok = getDriver().findElement(By.xpath(".//div[@class='ngdialog-content']//div[@class='dialog-footer']//button[@ng-if='ok_']"));
+		dialog_content_button_ok.click();
+
+	}
+
+	public void fechaAlertBoasVindas(){
+		WebElement dialog_content = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ngdialog-content']")));
+
+		if(dialog_content.isDisplayed()){
+            Actions action = new Actions(getDriver());
+            action.sendKeys(Keys.ESCAPE).build().perform();
+		}
+
+	}
+
+
 	/********* Frames e Janelas ************/
 	
 	public void entrarFrame(String id) {

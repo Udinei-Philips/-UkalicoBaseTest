@@ -5,9 +5,8 @@ import br.com.ukalico.core.core.DriverFactory;
 
 public class LoginPage extends BasePage {
 	
-	public void acessarTelaInicial(){
-		//DriverFactory.getDriver().get("http://srbarriga.herokuapp.com");
-		DriverFactory.getDriver().get("https://seubarriga.wcaquino.me");
+	public void acessarTelaInicial(String url){
+		DriverFactory.getDriver().get(url);
 	}
 	
 	public void setEmail(String email) {
@@ -21,7 +20,8 @@ public class LoginPage extends BasePage {
 	public void entrar(){
 		clicarBotaoPorTexto("Entrar");
 	}
-	
+
+
 	public void logar(String email, String senha) {
 		setEmail(email);
 		setSenha(senha);
@@ -31,4 +31,5 @@ public class LoginPage extends BasePage {
 	public void resetar() {
 		clicarLink("reset");
 	}
+
 }
