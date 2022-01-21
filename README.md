@@ -18,20 +18,20 @@ Arquitetura framework de testes UkBaseTest
 
 - img
 - src
-  - test
-        - core
-           - core
-           - pages
-           - testes
-           - utils
-        - suites
-        - tasy.core
-        - tasy.page
-        - tasy.tests
-        - resources
-        - driver
-        - grid
-  - target
-       - screanshot
+- test
+- core
+- core
+- pages
+- testes
+- utils
+- suites
+- tasy.core
+- tasy.page
+- tasy.tests
+- resources
+- driver
+- grid
+- target
+- screanshot
 pom.xml
 README.md
