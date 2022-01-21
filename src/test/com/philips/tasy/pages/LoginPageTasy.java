@@ -21,7 +21,7 @@ public class LoginPageTasy extends BasePage {
 
 
 
-
+/*
 	public void logar(String username, String password,String dataBase ) {
 		setLoginUsername(username);
         setLoginPassword(password);
@@ -29,7 +29,7 @@ public class LoginPageTasy extends BasePage {
 		autorizar();
 		processaAutorizacao();
 		loginDatabase(dataBase);
-	}
+	}*/
 
 	public void resetar() {
 		clicarLink("reset");

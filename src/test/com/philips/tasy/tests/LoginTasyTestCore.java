@@ -1,10 +1,10 @@
 package com.philips.tasy.tests;
 
-import com.philips.tasy.core.BaseTestTasy;
+import com.philips.tasy.core.BaseTestCoreTasy;
 import org.junit.Test;
 
 
-public class LoginTasyTest extends BaseTestTasy {
+public class LoginTasyTestCore extends BaseTestCoreTasy {
 
 
     @Test

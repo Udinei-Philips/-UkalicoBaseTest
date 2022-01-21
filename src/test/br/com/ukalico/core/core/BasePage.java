@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import static br.com.ukalico.core.core.DriverFactory.getDriver;
 
 public class BasePage {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+	public WebDriverWait wait = new WebDriverWait(getDriver(), 20);
 
 /********* TextField e TextArea ************/
 	
@@ -111,8 +112,10 @@ public class BasePage {
 	public void selecionarComboPrime(String radical, String valor) {
 		clicarRadio(By.xpath("//*[@id='"+radical+"_input']/../..//span"));
 		clicarRadio(By.xpath("//*[@id='"+radical+"_items']//li[.='"+valor+"']"));
+
 	}
-	
+
+	//
 	/********* Botao ************/
 	
 	public void clicarBotao(By by) {
@@ -194,11 +197,17 @@ public class BasePage {
 	}
 
 	public void fechaAlertBoasVindas(){
-		WebElement dialog_content = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ngdialog-content']")));
 
-		if(dialog_content.isDisplayed()){
-            Actions action = new Actions(getDriver());
-            action.sendKeys(Keys.ESCAPE).build().perform();
+		try {
+			WebElement dialog_content = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ngdialog-content']")));
+
+			if (dialog_content.isDisplayed()) {
+				Actions action = new Actions(getDriver());
+				action.sendKeys(Keys.ESCAPE).build().perform();
+			}
+		}catch (TimeoutException e){
+			System.out.println("Tela de boas vindas não habilitada! Seguindo com a execução dos testes....");
+			//e.printStackTrace();
 		}
 
 	}
@@ -272,4 +281,25 @@ public class BasePage {
 		}
 		return idColuna;
 	}
+
+
+	/***** Implementações elementos de tela Tasy  ******/
+
+	public void buscarFuncao(String nomeFuncao){
+		WebElement input = getDriver().findElement(By.xpath("//div/input[@ng-model='search']"));
+		input.click();
+		input.clear();
+		input.sendKeys(nomeFuncao);
+		input.sendKeys(Keys.ENTER);
+	}
+
+
+    public void clickBotaoCRUD(String nomeButton){
+		//getDriver().findElement(By.xpath("//button[@class='ng-scope handlebar-button']/span[text()='"+ nomeButton +"']")).click();
+		wait.withTimeout(Duration.ofSeconds(10));
+		WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='ng-scope handlebar-button']//span[@class='handlebar-button-label truncate'][text()='"+ nomeButton +"']")));
+		button.click();
+
+	}
+
 }

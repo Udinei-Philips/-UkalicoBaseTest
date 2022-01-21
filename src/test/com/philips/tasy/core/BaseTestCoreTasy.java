@@ -12,9 +12,8 @@ import java.io.File;
 import java.io.IOException;
 
 import static br.com.ukalico.core.core.DriverFactory.getDriver;
-import static br.com.ukalico.core.core.DriverFactory.killDriver;
 
-public class BaseTestTasy extends BaseTest {
+public class BaseTestCoreTasy extends BaseTest {
 
 
     @Override
@@ -30,8 +29,7 @@ public class BaseTestTasy extends BaseTest {
         pageTasy.loginDatabase("WTASY");
         pageTasy.entrar();
 
-        pageTasy.fechaAlertElementosInvalidos();
-        pageTasy.fechaAlertBoasVindas();
+
     }
 
     @Override
@@ -43,7 +41,7 @@ public class BaseTestTasy extends BaseTest {
                 File.separator + testName.getMethodName() + ".jpg"));
 
         if(Propriedades.FECHAR_BROWSER) {
-            killDriver();
+         //  killDriver();
         }
     }
 }
