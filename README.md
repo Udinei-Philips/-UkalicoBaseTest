@@ -16,8 +16,8 @@ Arquitetura framework de testes UkBaseTest
 
 # Estrutura de pastas do projeto
 
-- img
-- src
+img
+src
   - test
    - core
      - core
@@ -33,6 +33,6 @@ Arquitetura framework de testes UkBaseTest
     - grid
   - target
     - screanshot
-pom.xml
 
+pom.xml
 README.md
