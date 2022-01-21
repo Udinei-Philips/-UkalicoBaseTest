@@ -18,8 +18,12 @@ public class CadastroCompletoDePessoasPage extends BasePage {
        clickBotaoCRUD("Adicionar");
    }
 
+   public void inputDados(){
+
+   }
+
     public void clickNomeDaFuncao(){
-       wait.withTimeout(Duration.ofSeconds(10));
+        wait.withTimeout(Duration.ofSeconds(10));
         WebElement linkFunction = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='w-feature-app']/span[text()='Cadastro Completo de Pessoas']")));
         linkFunction.click();
 

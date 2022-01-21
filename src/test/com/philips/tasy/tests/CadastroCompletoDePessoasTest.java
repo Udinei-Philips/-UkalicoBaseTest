@@ -17,6 +17,7 @@ public class CadastroCompletoDePessoasTest extends BaseTestCoreTasy {
         cadCompletoPessoas.pesquisarFuncao();
         cadCompletoPessoas.clickNomeDaFuncao();
         cadCompletoPessoas.clicarBotaoAdicionar();
+
     }
 
 

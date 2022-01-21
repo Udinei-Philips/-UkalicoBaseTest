@@ -12,6 +12,7 @@ import java.util.List;
 
 import static br.com.ukalico.core.core.DriverFactory.getDriver;
 
+
 public class BasePage {
 
 	public WebDriverWait wait = new WebDriverWait(getDriver(), 20);
