@@ -13,3 +13,25 @@ Arquitetura framework de testes UkBaseTest
 - Selenium-chrome-driver 4.1.0
 - Commons-io 2.11.0
 - Apache Maven 3.8.3
+
+# Estrutura de pastas do projeto
+
+- img
+- src
+  - test
+        - core
+           - core
+           - pages
+           - testes
+           - utils
+        - suites
+        - tasy.core
+        - tasy.page
+        - tasy.tests
+        - resources
+        - driver
+        - grid
+  - target
+       - screanshot
+pom.xml
+README.md
