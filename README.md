@@ -19,10 +19,10 @@ Arquitetura framework de testes UkBaseTest
 - img
 - src
   - test
-- core
-- core
-- pages
-- testes
+   - core
+     - core
+     - pages
+     - testes
 - utils
 - suites
 - tasy.core
