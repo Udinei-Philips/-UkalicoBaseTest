@@ -14,7 +14,7 @@ Arquitetura framework de testes UkBaseTest
 - Commons-io 2.11.0
 - Apache Maven 3.8.3
 
-# Estrutura de pastas do projeto
+# Estrutura do projeto
 
 - img
 - src
