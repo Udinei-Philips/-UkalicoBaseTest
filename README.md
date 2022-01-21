@@ -23,15 +23,15 @@ Arquitetura framework de testes UkBaseTest
      - core
      - pages
      - testes
-- utils
-- suites
-- tasy.core
-- tasy.page
-- tasy.tests
-- resources
-- driver
-- grid
-- target
-- screanshot
+     - utils
+  - suites
+  - tasy.core
+  - tasy.page
+  - tasy.tests
+  - resources
+    - driver
+    - grid
+  - target
+    - screanshot
 pom.xml
 README.md
